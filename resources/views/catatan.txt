@@ -1,0 +1,1 @@
+@foreach($menuList as $menu) di katalog harus ada space di bagian "as" supaya tidak error
