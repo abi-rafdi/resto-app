@@ -30,12 +30,73 @@ Aplikasi web manajemen restoran modern berbasis **Laravel v10** yang dilengkapi 
 * **Frontend**: Bootstrap 5, Blade Template, JavaScript (Vanilla JS)
 
 ---
+Cara Instalasi & Menjalankan Proyek di Komputer Lain
 
-##  Cara Instalasi & Menjalankan Proyek (Lokal)
+Ikuti langkah-langkah detail berikut jika ingin menjalankan proyek ini di komputer baru:
 
-Jika kamu ingin menjalankan ulang proyek ini di komputer lain, ikuti langkah-langkah berikut:
+### 1. Persiapan Awal (Prasyarat)
+Pastikan komputer sudah terinstall:
+* **PHP v8.1+** & **XAMPP** (atau web server sejenis)
+* **Composer**
+* **Git**
 
-1. **Clone repositori ini**:
+  ### 2. Langkah-Langkah Instalasi
+
+1. **Clone Repositori ini**  
+   Buka Terminal/CMD, lalu jalankan:
    ```bash
-   git clone [https://github.com/abi-rafdi/resto-app.git](https://github.com/abi-rafdi/resto-app.git)
+   git clone [https://github.com/abi-rafdi/resto-app.git](https://github.com/USERNAME-KAMU/resto-app.git)
    cd resto-app
+
+1. Install Dependensi Laravel
+
+Jalankan perintah Composer untuk mengunduh kembali folder vendor:
+composer install
+
+2. Buat File Konfigurasi Environment (.env)
+
+Copy file contoh .env.example menjadi .env:
+
+Di Windows (CMD):
+copy .env.example .env
+
+Di Git Bash / Terminal / Linux / Mac:
+cp .env.example .env
+
+3.Generate Application Key
+
+Buat enkripsi kunci aplikasi Laravel:
+php artisan key:generate
+
+4. Buat & Setting Database MySQL
+
+Nyalakan Apache dan MySQL di XAMPP Control Panel.
+
+Buka browser dan pergi ke http://localhost/phpmyadmin.
+
+Buat database baru dengan nama: resto_db (atau nama pilihanmu).
+
+Buka file .env di editor teks (VS Code), lalu sesuaikan konfigurasi databasenya:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=resto_db
+DB_USERNAME=root
+DB_PASSWORD=
+
+5.Jalankan Migration Database
+
+Buat seluruh tabel yang dibutuhkan otomatis di MySQL:
+php artisan migrate
+
+6.Jalankan Server Lokal
+php artisan serve
+
+7.Buka Aplikasi di Browser
+
+Katalog Publik (Sisi Pelanggan): http://127.0.0.1:8000/katalog
+
+Panel Admin: Klik tombol 🔒 Admin di kanan atas katalog, lalu masukkan Passcode default: 12345.
+
+
+
